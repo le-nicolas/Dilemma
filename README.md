@@ -22,7 +22,7 @@ example:
 Cost Reduction Scenario:
 
 To save money, you decide to use a less expensive but less tested component.
-Impact: This decision maintains your budget but increases the risk of failure and potentially lowers the satellite’s performance if the component doesn’t work as expected.
+Impact: This decision maintains your budget but increases the risk of failure and potentially lowers the machine’s performance if the component doesn’t work as expected.
 
 Risk Reduction Scenario:
 
