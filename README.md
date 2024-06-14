@@ -23,10 +23,14 @@ Cost Reduction Scenario:
 
 To save money, you decide to use a less expensive but less tested component.
 Impact: This decision maintains your budget but increases the risk of failure and potentially lowers the satellite’s performance if the component doesn’t work as expected.
+
 Risk Reduction Scenario:
+
 
 To reduce risk, you invest in additional testing and choose components with proven reliability.
 Impact: This decision maintains performance but increases costs due to more expensive components and additional testing.
+
+
 Performance Maintenance Scenario:
 
 To keep performance high without increasing costs, you might need to accept higher risks by not performing extensive testing or using less reliable components.
