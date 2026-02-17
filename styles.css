@@ -1,0 +1,231 @@
+:root {
+  --bg-0: #07131f;
+  --bg-1: #14263d;
+  --panel: rgba(10, 24, 38, 0.86);
+  --line: rgba(123, 169, 201, 0.38);
+  --text: #eaf5ff;
+  --muted: #9ac0dd;
+  --accent: #ff9f66;
+  --accent-2: #5ed7ca;
+  --point: #ffd166;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--text);
+  background: radial-gradient(circle at 15% 5%, #1b3654 0%, var(--bg-0) 50%),
+    linear-gradient(160deg, #091a2b, #0d1521 70%);
+  min-height: 100vh;
+}
+
+.aurora {
+  position: fixed;
+  inset: -20vmax;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 20% 25%, rgba(255, 159, 102, 0.24), transparent 50%),
+    radial-gradient(ellipse at 75% 15%, rgba(94, 215, 202, 0.18), transparent 42%),
+    radial-gradient(ellipse at 55% 75%, rgba(85, 120, 255, 0.22), transparent 44%);
+  filter: blur(28px);
+  animation: drift 14s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(-2%, -1%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(2%, 1%, 0) scale(1.06);
+  }
+}
+
+.shell {
+  position: relative;
+  z-index: 1;
+  width: min(1120px, 92vw);
+  margin: 0 auto;
+  padding: 3.2rem 0 3rem;
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: "Syne", sans-serif;
+  font-size: clamp(2.2rem, 4.5vw, 4rem);
+  letter-spacing: 0.02em;
+}
+
+.eyebrow {
+  color: var(--accent-2);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  margin: 0 0 0.7rem;
+}
+
+.subtitle {
+  margin: 0.9rem 0 0;
+  color: var(--muted);
+  max-width: 60ch;
+  line-height: 1.6;
+}
+
+.layout {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: minmax(300px, 360px) minmax(360px, 1fr);
+  gap: 1rem;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 1.2rem 1.1rem;
+  backdrop-filter: blur(9px);
+}
+
+h2 {
+  margin: 0 0 0.2rem;
+  font-family: "Syne", sans-serif;
+}
+
+h3 {
+  margin: 1.4rem 0 0.6rem;
+  font-family: "Syne", sans-serif;
+}
+
+.panel-copy {
+  margin: 0 0 1.1rem;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.slider-group {
+  margin-bottom: 1rem;
+}
+
+.slider-group label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+  color: #d6ebff;
+  font-size: 0.9rem;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.scenario-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
+  margin-bottom: 0.75rem;
+}
+
+button {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  padding: 0.55rem 0.62rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.34);
+}
+
+button.ghost {
+  width: 100%;
+  color: #e7ffff;
+  border-color: rgba(94, 215, 202, 0.42);
+}
+
+#ternary {
+  width: 100%;
+  height: auto;
+  margin-top: 0.6rem;
+}
+
+#ternary text {
+  fill: #cae6fb;
+  font-size: 4.1px;
+}
+
+.triangle {
+  fill: rgba(73, 122, 168, 0.12);
+  stroke: rgba(197, 223, 248, 0.8);
+  stroke-width: 0.7;
+}
+
+.guide {
+  stroke: rgba(162, 198, 224, 0.28);
+  stroke-width: 0.5;
+  stroke-dasharray: 1.5 1;
+}
+
+#decision-point {
+  fill: var(--point);
+  stroke: #fff7dd;
+  stroke-width: 0.65;
+  filter: drop-shadow(0 0 0.9px rgba(255, 209, 102, 0.7));
+  transition: cx 180ms ease, cy 180ms ease;
+}
+
+.insights {
+  margin-top: 0.8rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+}
+
+.card {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  padding: 0.65rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.card.full {
+  grid-column: 1 / -1;
+}
+
+.card-label {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.card-value {
+  margin: 0.28rem 0 0;
+  font-family: "Syne", sans-serif;
+  font-size: 1.35rem;
+}
+
+.guidance {
+  margin: 0.35rem 0 0;
+  line-height: 1.42;
+}
+
+@media (max-width: 900px) {
+  .shell {
+    padding-top: 2.2rem;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dilemma Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Syne:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="aurora" aria-hidden="true"></div>
+    <main class="shell">
+      <header class="hero">
+        <p class="eyebrow">Decision playground</p>
+        <h1>Dilemma Studio</h1>
+        <p class="subtitle">
+          Shape trade-offs between cost, risk, and performance, then see your
+          strategy shift in real time.
+        </p>
+      </header>
+
+      <section class="layout">
+        <aside class="panel controls">
+          <h2>Weights</h2>
+          <p class="panel-copy">All sliders are auto-balanced to total 100%.</p>
+
+          <div class="slider-group">
+            <label for="cost">
+              Cost
+              <span id="cost-value">33%</span>
+            </label>
+            <input type="range" id="cost" name="cost" min="0" max="100" value="33" />
+          </div>
+
+          <div class="slider-group">
+            <label for="risk">
+              Risk
+              <span id="risk-value">33%</span>
+            </label>
+            <input type="range" id="risk" name="risk" min="0" max="100" value="33" />
+          </div>
+
+          <div class="slider-group">
+            <label for="performance">
+              Performance
+              <span id="performance-value">34%</span>
+            </label>
+            <input
+              type="range"
+              id="performance"
+              name="performance"
+              min="0"
+              max="100"
+              value="34"
+            />
+          </div>
+
+          <h3>Scenarios</h3>
+          <div class="scenario-grid">
+            <button class="scenario" data-scenario="balanced">Balanced</button>
+            <button class="scenario" data-scenario="cost">Cost Crunch</button>
+            <button class="scenario" data-scenario="risk">Risk Shield</button>
+            <button class="scenario" data-scenario="performance">Performance Push</button>
+          </div>
+          <button id="randomize" class="ghost">Roll Random Scenario</button>
+        </aside>
+
+        <section class="panel studio">
+          <h2>Trade-off Map</h2>
+          <svg
+            id="ternary"
+            viewBox="0 0 100 100"
+            role="img"
+            aria-label="Ternary chart of cost, risk, and performance"
+          >
+            <polygon
+              points="50,10 10,90 90,90"
+              class="triangle"
+            />
+            <line x1="50" y1="10" x2="50" y2="90" class="guide" />
+            <line x1="10" y1="90" x2="70" y2="50" class="guide" />
+            <line x1="90" y1="90" x2="30" y2="50" class="guide" />
+            <circle id="decision-point" cx="50" cy="63" r="2.7"></circle>
+            <text x="50" y="5" text-anchor="middle">Performance</text>
+            <text x="4" y="94" text-anchor="start">Risk</text>
+            <text x="96" y="94" text-anchor="end">Cost</text>
+          </svg>
+
+          <div class="insights">
+            <article class="card">
+              <p class="card-label">Dominant Driver</p>
+              <p id="dominant-driver" class="card-value">Performance</p>
+            </article>
+            <article class="card">
+              <p class="card-label">Balance Score</p>
+              <p id="balance-score" class="card-value">100</p>
+            </article>
+            <article class="card full">
+              <p class="card-label">Guidance</p>
+              <p id="guidance" class="guidance">
+                You are near equilibrium. This is strong for steady delivery.
+              </p>
+            </article>
+          </div>
+        </section>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>

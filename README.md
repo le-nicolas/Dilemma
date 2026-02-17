@@ -1,37 +1,48 @@
-# Dilemma
-This script creates a ternary plot with vertices representing cost, risk, and performance. The markers on the plot indicate different trade-off scenarios:
+# Dilemma Studio
 
-High performance with low risk but high cost.
+Dilemma Studio is a browser-based decision playground for balancing:
 
-High risk with low cost and low performance.
+- `Cost`
+- `Risk`
+- `Performance`
 
-High cost with low risk and low performance.
+It replaces the old Python plotting script with a fully interactive static app that runs anywhere (including GitHub Pages).
 
-Balanced risk and performance with higher cost.
+## Features
 
-Balanced cost and performance with higher risk.
+- Live trade-off sliders that always sum to `100%`
+- Interactive ternary-style chart with a moving decision point
+- Preset scenarios plus random scenario generation
+- Instant analysis:
+  - dominant driver
+  - balance score
+  - strategy guidance
 
-Balanced cost and risk with lower performance.
+## Run Locally
 
+No build step is required.
 
+1. Clone the repo
+2. Open `index.html` in a browser
 
-Understanding these relationships and their implications is crucial for making informed decisions that balance these factors according to the project's priorities and constraints. This balancing act is a core aspect of systems engineering, ensuring that the final system meets the necessary requirements within the available resources.
+Optional local server:
 
-example: 
+```bash
+# Node (if installed)
+npx serve .
+```
 
-Cost Reduction Scenario:
+## Publish on GitHub Pages
 
-To save money, you decide to use a less expensive but less tested component.
-Impact: This decision maintains your budget but increases the risk of failure and potentially lowers the machine’s performance if the component doesn’t work as expected.
+1. Push to `main`
+2. In GitHub repo settings:
+   - open `Pages`
+   - source: `Deploy from a branch`
+   - branch: `main` and `/ (root)`
+3. Save and wait for the Pages URL to appear
 
-Risk Reduction Scenario:
+## Stack
 
-
-To reduce risk, you invest in additional testing and choose components with proven reliability.
-Impact: This decision maintains performance but increases costs due to more expensive components and additional testing.
-
-
-Performance Maintenance Scenario:
-
-To keep performance high without increasing costs, you might need to accept higher risks by not performing extensive testing or using less reliable components.
-Impact: This decision keeps costs in check but increases the likelihood of issues or failures during operation.
+- HTML
+- CSS
+- Vanilla JavaScript
